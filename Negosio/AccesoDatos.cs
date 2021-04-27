@@ -17,9 +17,15 @@ namespace Negosio
 
         public AccesoDatos()
         {
+
             conexion = new SqlConnection("data source=.\\SQLEXPRESS; initial catalog=CATALOGO_DB; integrated security=sspi ");
+
             comando = new SqlCommand();
             comando.Connection = conexion;
+        }
+        public void conectar()
+        {
+            conexion.Open();
         }
 
         public void setearQuery(string consulta)
@@ -37,6 +43,12 @@ namespace Negosio
             comando.Parameters.AddWithValue(nombre, valor);
         }
 
+        public SqlDataReader leer()
+        {
+            lector = comando.ExecuteReader();
+            // lector.Read();
+            return lector;
+        }
         public void ejecutaLector()
         {
             try
@@ -74,6 +86,6 @@ namespace Negosio
             {
                 conexion.Close();
             }
-        }   
+        }
     }
 }

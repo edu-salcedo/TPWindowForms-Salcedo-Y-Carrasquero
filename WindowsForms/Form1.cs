@@ -21,10 +21,40 @@ namespace WindowsForms
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            ArticuloNegosio arti = new ArticuloNegosio();
-            dgvlista.DataSource = arti.listar();  // carga el datagridview  con la lista de articulos
-            dgvlista.Columns[4].Visible = false;    // ocultamos la columna 4 que contiene la url de imagenes
 
+            btnIngresar.Enabled = false;  // el boton de ingresar en inicio sale desabilitado
+        }
+
+        private void btnIngresar_Click(object sender, EventArgs e)
+        {
+            Form2 ventana2 = new Form2(tbnombre.Text);
+            ventana2.ShowDialog();
+        }
+
+        private void btnSalir_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void tbnombre_TextChanged(object sender, EventArgs e)
+        {
+            if (tbnombre.Text.Trim() != String.Empty && tbnombre.Text.All(char.IsLetter)) // si no esta vacio y todas son letras
+            {
+                btnIngresar.Enabled = true;
+                errorProvider1.SetError(tbnombre, "");
+            }
+            else
+            {
+                if (!(tbnombre.Text.All(char.IsLetter)))   // si no son todas letras
+                {
+                    errorProvider1.SetError(tbnombre, "el nombre solo debe contener letras");
+                }
+                else
+                {
+                    errorProvider1.SetError(tbnombre, "tiene que ingresar un nombre");
+                }
+                btnIngresar.Enabled = false;
+            }
         }
     }
 }
