@@ -41,7 +41,51 @@ namespace Negosio
             }
             conexion.cerrarConexion();
             return lista;
+        }
+        public void agregar(Articulo nuevo)
+        {
+            try
+            {
+                AccesoDatos conexion = new AccesoDatos();
+                conexion.setearQuery("insert into ARTICULOS( Codigo,Nombre, Descripcion, IdMarca,IdCategoria,Precio, ImagenUrl)values(@cod, @nombre,@des,@marca,@cat,@precio,@imagen) ");
+                conexion.agregarParametro("@cod", nuevo.codigo);
+                conexion.agregarParametro("@nombre", nuevo.nombre);
+                conexion.agregarParametro("@des", nuevo.descripcion);
+                conexion.agregarParametro("@marca", nuevo.marca.id);
+                conexion.agregarParametro("@cat", nuevo.categoria.id);
+                conexion.agregarParametro("@precio", nuevo.precio);
+                conexion.agregarParametro("@imagen", nuevo.imagen);
+              
+                conexion.ejecutarAccion();
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
 
+
+        }
+
+        public void editar(Articulo arti)
+        {
+            try
+            {
+                AccesoDatos conexion = new AccesoDatos();
+                conexion.setearQuery("update ARTICULOS set  Nombre=@nombre,Descripcion=@des,idcat=@cat,costo=@costo, ImagenUrl=@imagen where Id=@id ");
+
+                conexion.agregarParametro("@nombre", arti.nombre);
+                conexion.agregarParametro("@des", arti.descripcion);
+                conexion.agregarParametro("@imagen", arti.imagen);
+
+                conexion.agregarParametro("@cat", arti.categoria.id);
+                conexion.agregarParametro("@costo", arti.precio);
+                conexion.agregarParametro("@id", arti.id);
+                conexion.ejecutarAccion();
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
 
         }
     }

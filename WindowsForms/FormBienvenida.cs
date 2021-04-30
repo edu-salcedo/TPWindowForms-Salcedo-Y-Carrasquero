@@ -12,9 +12,9 @@ using Negosio;
 
 namespace WindowsForms
 {
-    public partial class Form1 : Form
+    public partial class FormBienvenida : Form
     {
-        public Form1()
+        public FormBienvenida()
         {
             InitializeComponent();
         }
@@ -27,7 +27,8 @@ namespace WindowsForms
 
         private void btnIngresar_Click(object sender, EventArgs e)
         {
-            Form2 ventana2 = new Form2(tbnombre.Text);
+            
+            FormPrincipal ventana2 = new FormPrincipal(tbnombre.Text);
             ventana2.ShowDialog();
         }
 

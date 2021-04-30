@@ -1,6 +1,6 @@
 ﻿namespace WindowsForms
 {
-    partial class Form1
+    partial class FormBienvenida
     {
         /// <summary>
         /// Required designer variable.
