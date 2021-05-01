@@ -40,8 +40,16 @@ namespace WindowsForms
 
         private void dgvlista_SelectionChanged(object sender, EventArgs e)
         {
+            try
+            {
             artiActual = (Articulo)dgvlista.CurrentRow.DataBoundItem; // trae  el articulo de la fila seleccionada
             pbImagen.Load(artiActual.imagen);
+
+            }
+            catch
+            {
+
+            }
         }
 
         private void btnDetalle_Click(object sender, EventArgs e)

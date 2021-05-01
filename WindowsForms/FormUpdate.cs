@@ -23,6 +23,11 @@ namespace WindowsForms
 
         }
 
+        public FormUpdate(Articulo arti)
+        {
+            InitializeComponent();
+            articulo = arti;
+        }
         private void FormUpdate_Load(object sender, EventArgs e)
         {
             MarcaNegosio marca = new MarcaNegosio();

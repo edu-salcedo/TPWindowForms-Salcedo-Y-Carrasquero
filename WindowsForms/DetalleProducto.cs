@@ -23,9 +23,41 @@ namespace WindowsForms
 
         private void DetalleProducto_Load(object sender, EventArgs e)
         {
-            label1.Text = _arti.nombre;
+            lbCodigo.Text = _arti.codigo;
+            lbNombre.Text = _arti.nombre;
+            lbDesc.Text = _arti.descripcion;
+            lbCat.Text = _arti.categoria.nombre;
+            lbMarca.Text = _arti.marca.nombre;
+            lbPrecio.Text = Convert.ToString(_arti.precio);
+
+            try
+            {
+                pbImag.Load(_arti.imagen);
+
+            }
+            catch
+            {
+
+            }
 
         }
 
+        private void btnIVolver_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void btnEditar_Click(object sender, EventArgs e)
+        {
+            
+
+            FormUpdate modificar = new FormUpdate(_arti);
+            modificar.ShowDialog();
+        }
+
+        private void btnEliminar_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

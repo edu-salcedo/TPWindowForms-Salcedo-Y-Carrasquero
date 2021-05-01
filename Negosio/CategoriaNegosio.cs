@@ -21,13 +21,9 @@ namespace Negosio
             while (lector.Read())
             {
                 lista.Add(new Categoria((int)lector["id"], (string)lector["Descripcion"]));
-
-
             }
             conexion.cerrarConexion();
             return lista;
-
-
         }
     }
 }

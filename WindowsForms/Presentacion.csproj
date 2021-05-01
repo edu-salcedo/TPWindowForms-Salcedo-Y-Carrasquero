@@ -117,7 +117,9 @@
       <Name>Negosio</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <None Include="Resources\images.png" />
+  </ItemGroup>
   <ItemGroup>
     <None Include="Resources\bus.png" />
   </ItemGroup>

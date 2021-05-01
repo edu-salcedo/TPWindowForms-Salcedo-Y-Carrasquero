@@ -59,7 +59,7 @@
             // 
             this.Saludo.AutoSize = true;
             this.Saludo.Font = new System.Drawing.Font("Stencil", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Saludo.Location = new System.Drawing.Point(216, 36);
+            this.Saludo.Location = new System.Drawing.Point(265, 9);
             this.Saludo.Name = "Saludo";
             this.Saludo.Size = new System.Drawing.Size(103, 32);
             this.Saludo.TabIndex = 15;
@@ -145,6 +145,7 @@
             this.Controls.Add(this.Saludo);
             this.Controls.Add(this.dgvlista);
             this.Name = "FormPrincipal";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Form2";
             this.Load += new System.EventHandler(this.Form2_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvlista)).EndInit();
