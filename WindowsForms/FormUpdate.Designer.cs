@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.tbCodigo = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
@@ -36,14 +37,16 @@
             this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
-            this.texNombre = new System.Windows.Forms.TextBox();
-            this.textDescripcion = new System.Windows.Forms.TextBox();
+            this.tbNombre = new System.Windows.Forms.TextBox();
+            this.tbDescripcion = new System.Windows.Forms.TextBox();
             this.tbImagen = new System.Windows.Forms.TextBox();
             this.cbMarca = new System.Windows.Forms.ComboBox();
             this.cbCategoria = new System.Windows.Forms.ComboBox();
-            this.texPrecio = new System.Windows.Forms.TextBox();
+            this.tbPrecio = new System.Windows.Forms.TextBox();
             this.btnCancelar = new System.Windows.Forms.Button();
             this.btnAceptar = new System.Windows.Forms.Button();
+            this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             this.SuspendLayout();
             // 
             // tbCodigo
@@ -123,19 +126,19 @@
             this.label7.TabIndex = 33;
             this.label7.Text = "Precio";
             // 
-            // texNombre
+            // tbNombre
             // 
-            this.texNombre.Location = new System.Drawing.Point(365, 99);
-            this.texNombre.Name = "texNombre";
-            this.texNombre.Size = new System.Drawing.Size(121, 20);
-            this.texNombre.TabIndex = 34;
+            this.tbNombre.Location = new System.Drawing.Point(365, 99);
+            this.tbNombre.Name = "tbNombre";
+            this.tbNombre.Size = new System.Drawing.Size(121, 20);
+            this.tbNombre.TabIndex = 34;
             // 
-            // textDescripcion
+            // tbDescripcion
             // 
-            this.textDescripcion.Location = new System.Drawing.Point(363, 138);
-            this.textDescripcion.Name = "textDescripcion";
-            this.textDescripcion.Size = new System.Drawing.Size(121, 20);
-            this.textDescripcion.TabIndex = 35;
+            this.tbDescripcion.Location = new System.Drawing.Point(363, 138);
+            this.tbDescripcion.Name = "tbDescripcion";
+            this.tbDescripcion.Size = new System.Drawing.Size(121, 20);
+            this.tbDescripcion.TabIndex = 35;
             // 
             // tbImagen
             // 
@@ -160,12 +163,12 @@
             this.cbCategoria.Size = new System.Drawing.Size(121, 21);
             this.cbCategoria.TabIndex = 38;
             // 
-            // texPrecio
+            // tbPrecio
             // 
-            this.texPrecio.Location = new System.Drawing.Point(363, 292);
-            this.texPrecio.Name = "texPrecio";
-            this.texPrecio.Size = new System.Drawing.Size(121, 20);
-            this.texPrecio.TabIndex = 39;
+            this.tbPrecio.Location = new System.Drawing.Point(363, 292);
+            this.tbPrecio.Name = "tbPrecio";
+            this.tbPrecio.Size = new System.Drawing.Size(121, 20);
+            this.tbPrecio.TabIndex = 39;
             // 
             // btnCancelar
             // 
@@ -193,6 +196,10 @@
             this.btnAceptar.UseVisualStyleBackColor = false;
             this.btnAceptar.Click += new System.EventHandler(this.btnAceptar_Click);
             // 
+            // errorProvider1
+            // 
+            this.errorProvider1.ContainerControl = this;
+            // 
             // FormUpdate
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -200,12 +207,12 @@
             this.ClientSize = new System.Drawing.Size(759, 450);
             this.Controls.Add(this.btnAceptar);
             this.Controls.Add(this.btnCancelar);
-            this.Controls.Add(this.texPrecio);
+            this.Controls.Add(this.tbPrecio);
             this.Controls.Add(this.cbCategoria);
             this.Controls.Add(this.cbMarca);
             this.Controls.Add(this.tbImagen);
-            this.Controls.Add(this.textDescripcion);
-            this.Controls.Add(this.texNombre);
+            this.Controls.Add(this.tbDescripcion);
+            this.Controls.Add(this.tbNombre);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label5);
@@ -217,6 +224,7 @@
             this.Name = "FormUpdate";
             this.Text = "FormUpdate";
             this.Load += new System.EventHandler(this.FormUpdate_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -232,13 +240,14 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.TextBox texNombre;
-        private System.Windows.Forms.TextBox textDescripcion;
+        private System.Windows.Forms.TextBox tbNombre;
+        private System.Windows.Forms.TextBox tbDescripcion;
         private System.Windows.Forms.TextBox tbImagen;
         private System.Windows.Forms.ComboBox cbMarca;
         private System.Windows.Forms.ComboBox cbCategoria;
-        private System.Windows.Forms.TextBox texPrecio;
+        private System.Windows.Forms.TextBox tbPrecio;
         private System.Windows.Forms.Button btnCancelar;
         private System.Windows.Forms.Button btnAceptar;
+        private System.Windows.Forms.ErrorProvider errorProvider1;
     }
 }

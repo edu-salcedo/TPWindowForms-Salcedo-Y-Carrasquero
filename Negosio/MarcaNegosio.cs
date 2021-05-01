@@ -16,7 +16,7 @@ namespace Negosio
             List<Marca> lista = new List<Marca>();
             AccesoDatos conexion = new AccesoDatos();
             conexion.conectar();
-            conexion.setearQuery("select id, Descripcion from CATEGORIAS");
+            conexion.setearQuery("select id, Descripcion from Marcas");
             SqlDataReader lector = conexion.leer();
 
             while (lector.Read())

@@ -49,15 +49,14 @@ namespace WindowsForms
 
         private void btnEditar_Click(object sender, EventArgs e)
         {
-            
-
             FormUpdate modificar = new FormUpdate(_arti);
             modificar.ShowDialog();
         }
 
         private void btnEliminar_Click(object sender, EventArgs e)
         {
-
+            ArticuloNegosio negosio = new ArticuloNegosio();
+            negosio.eliminar(_arti.id);
         }
     }
 }

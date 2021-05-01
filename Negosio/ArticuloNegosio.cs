@@ -71,14 +71,15 @@ namespace Negosio
             try
             {
                 AccesoDatos conexion = new AccesoDatos();
-                conexion.setearQuery("update ARTICULOS set  Nombre=@nombre,Descripcion=@des,idcat=@cat,costo=@costo, ImagenUrl=@imagen where Id=@id ");
+                conexion.setearQuery("update ARTICULOS set codigo=@codigo,Nombre=@nombre,Descripcion=@des,idcategoria=@cat,idmarca=@marca,Precio=@precio, ImagenUrl=@imagen where Id=@id ");
 
+                conexion.agregarParametro("@codigo", arti.codigo);
                 conexion.agregarParametro("@nombre", arti.nombre);
                 conexion.agregarParametro("@des", arti.descripcion);
                 conexion.agregarParametro("@imagen", arti.imagen);
-
+                conexion.agregarParametro("@marca", arti.marca.id);
                 conexion.agregarParametro("@cat", arti.categoria.id);
-                conexion.agregarParametro("@costo", arti.precio);
+                conexion.agregarParametro("@precio", arti.precio);
                 conexion.agregarParametro("@id", arti.id);
                 conexion.ejecutarAccion();
             }
@@ -87,6 +88,21 @@ namespace Negosio
                 throw ex;
             }
 
+        }
+        public void eliminar(int id)
+        {
+            try
+            {
+                AccesoDatos conexion = new AccesoDatos();
+                conexion.setearQuery("delete from articulos where Id=@id ");
+
+                conexion.agregarParametro("@id", id);
+                conexion.ejecutarAccion();
+            }
+            catch(Exception ex)
+            {
+                throw ex;
+            }
         }
     }
 }
