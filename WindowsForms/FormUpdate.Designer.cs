@@ -222,6 +222,7 @@
             this.Controls.Add(this.label3);
             this.Controls.Add(this.tbCodigo);
             this.Name = "FormUpdate";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FormUpdate";
             this.Load += new System.EventHandler(this.FormUpdate_Load);
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();

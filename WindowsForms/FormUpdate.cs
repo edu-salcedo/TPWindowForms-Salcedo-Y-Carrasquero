@@ -74,11 +74,14 @@ namespace WindowsForms
                 if (articulo.id > 0)
                 {                                           // si el articulo no tiene un id es un articulo nuevo 
                     articuloNegosio.editar(articulo);                  //se llama funcion etitar
+                    MessageBox.Show("se edito el articulo", "Atencion", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
                 else
                 {
                     articuloNegosio.agregar(articulo);                 //  se llama a la funcion agregar y se manda parametro articulo con los valores ingresados
+                    MessageBox.Show("se agrego el articulo", "Atencion", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
+
                 this.Close();
             }
             
@@ -93,18 +96,18 @@ namespace WindowsForms
         {
             string mensaje = "este campo no puede estar vacio";
 
-            if (tbCodigo.Text.Trim() == String.Empty ) // si esta vacio 
+            if (tbCodigo.Text.Trim() == String.Empty) // si esta vacio 
             {
-                errorProvider1.SetError(tbCodigo,mensaje);
+                errorProvider1.SetError(tbCodigo, mensaje);
                 return false;
             }
             else
             {
-                errorProvider1.SetError(tbCodigo,"");
+                errorProvider1.SetError(tbCodigo, "");
             }
             if (tbNombre.Text.Trim() == String.Empty) // si esta vacio 
             {
-               
+
                 errorProvider1.SetError(tbNombre, mensaje);
                 return false;
             }
@@ -114,7 +117,7 @@ namespace WindowsForms
             }
             if (tbDescripcion.Text.Trim() == String.Empty) // si esta vacio 
             {
-               
+
                 errorProvider1.SetError(tbDescripcion, mensaje);
                 return false;
             }
@@ -124,14 +127,14 @@ namespace WindowsForms
             }
             if (cbMarca.SelectedIndex <= -1)
             {
-                
+
                 errorProvider1.SetError(cbMarca, mensaje);
                 return false;
             }
             else
             {
                 errorProvider1.SetError(cbMarca, "");
-                
+
             }
 
             if (cbCategoria.SelectedIndex <= -1)
@@ -142,7 +145,8 @@ namespace WindowsForms
             else
             { errorProvider1.SetError(cbCategoria, ""); }
 
-            if ((tbPrecio.Text.Trim() == String.Empty)|| !( tbPrecio.Text.All(char.IsDigit))) // si esta vacio 
+            decimal precio;
+            if ((tbPrecio.Text.Trim() == String.Empty)|| !(decimal.TryParse(tbPrecio.Text,out precio))) // si esta vacio 
             {
                 
                 errorProvider1.SetError(tbPrecio, mensaje);

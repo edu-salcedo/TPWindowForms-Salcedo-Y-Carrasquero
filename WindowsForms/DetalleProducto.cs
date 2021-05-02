@@ -37,7 +37,7 @@ namespace WindowsForms
             }
             catch
             {
-
+              // si no hay imagen no muestra nada
             }
 
         }
@@ -51,12 +51,22 @@ namespace WindowsForms
         {
             FormUpdate modificar = new FormUpdate(_arti);
             modificar.ShowDialog();
+            this.Close();
         }
 
         private void btnEliminar_Click(object sender, EventArgs e)
         {
             ArticuloNegosio negosio = new ArticuloNegosio();
-            negosio.eliminar(_arti.id);
+
+            DialogResult r = MessageBox.Show("esta seguro de esta operacion", "confirmacion", MessageBoxButtons.YesNo);
+
+            if (r == DialogResult.Yes)
+            {
+               negosio.eliminar(_arti.id);
+               MessageBox.Show("el articulo se elimino correctamente");
+                this.Close();
+            }
+            
         }
     }
 }

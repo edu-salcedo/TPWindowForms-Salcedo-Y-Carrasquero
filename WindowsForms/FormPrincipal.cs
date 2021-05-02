@@ -24,18 +24,22 @@ namespace WindowsForms
 
         private void Form2_Load(object sender, EventArgs e)
         {
-            ArticuloNegosio arti = new ArticuloNegosio();
-            lista = arti.listar();
-            dgvlista.DataSource = lista;   // carga el datagridview  la lista de articulos
-            dgvlista.Columns[0].Visible = false;
-            dgvlista.Columns[3].Visible = false;    // ocultamos la columna 4 que contiene la descripcion del producto
-            dgvlista.Columns[4].Visible = false;    // ocultamos la columna 4 que contiene la url de imagene
+            cargar();
         }
 
         private void btnIvolver_Click(object sender, EventArgs e)
         {
             this.Close();
 
+        }
+        private void cargar()
+        {
+            ArticuloNegosio arti = new ArticuloNegosio();
+            lista = arti.listar();
+            dgvlista.DataSource = lista;   // carga el datagridview  la lista de articulos
+            dgvlista.Columns[0].Visible = false;
+            dgvlista.Columns[3].Visible = false;    // ocultamos la columna 4 que contiene la descripcion del producto
+            dgvlista.Columns[4].Visible = false;    // ocultamos la columna 4 que contiene la url de imagene
         }
 
         private void dgvlista_SelectionChanged(object sender, EventArgs e)
@@ -56,6 +60,7 @@ namespace WindowsForms
         {
             DetalleProducto detalle = new DetalleProducto(artiActual);
             detalle.ShowDialog();
+            cargar();
         }
 
         private void pbBuscar_Click(object sender, EventArgs e)
@@ -70,12 +75,7 @@ namespace WindowsForms
         {
             FormUpdate editar = new FormUpdate();
             editar.ShowDialog();
-
-            //     Articulo articulo;
-            //articulo = (Articulo)dgvlista.CurrentRow.DataBoundItem;
-
-            //FormUpdate modificar = new FormUpdate(articulo);
-            //modificar.ShowDialog();
+            cargar();
         }
     }
 }
