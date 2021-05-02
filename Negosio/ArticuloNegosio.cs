@@ -13,7 +13,9 @@ namespace Negosio
         public SqlCommand comando { set;get; }
         public List<Articulo> listar()
         {
-            
+           try
+            { 
+
             List<Articulo> lista = new List<Articulo>();
             AccesoDatos conexion = new AccesoDatos();
             conexion.conectar();
@@ -41,6 +43,11 @@ namespace Negosio
             }
             conexion.cerrarConexion();
             return lista;
+             }
+            catch(Exception ex)
+            {
+                throw ex;
+            }
         }
         public void agregar(Articulo nuevo)
         {

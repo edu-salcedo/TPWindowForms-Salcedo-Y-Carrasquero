@@ -37,7 +37,8 @@ namespace WindowsForms
             }
             catch
             {
-              // si no hay imagen no muestra nada
+                // si no hay imagen no muestra nada
+                pbImag.Load("noimagen.png");
             }
 
         }

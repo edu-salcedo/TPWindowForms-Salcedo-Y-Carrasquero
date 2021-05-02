@@ -52,7 +52,8 @@ namespace WindowsForms
             }
             catch
             {
-
+                
+                pbImagen.Load("noimagen.png");  //si el articulo no tiene imagen te muestra una iamgen de no se pudo cargar imagen
             }
         }
 
@@ -77,5 +78,7 @@ namespace WindowsForms
             editar.ShowDialog();
             cargar();
         }
+
+ 
     }
 }
