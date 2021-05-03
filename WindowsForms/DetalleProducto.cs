@@ -29,7 +29,7 @@ namespace WindowsForms
             }
             catch
             {
-
+                pbImag.Load("noimagen.png");
             }
 
         }
