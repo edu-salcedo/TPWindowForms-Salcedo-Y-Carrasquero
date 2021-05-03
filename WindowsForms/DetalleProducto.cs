@@ -20,7 +20,7 @@ namespace WindowsForms
             {
                 lbCodigo.Text = _arti.codigo;
                 lbNombre.Text = _arti.nombre;
-                lbDesc.Text = _arti.descripcion;
+                lbDes.Text = _arti.descripcion;
                 lbCat.Text = _arti.categoria.nombre;
                 lbMarca.Text = _arti.marca.nombre;
                 lbPrecio.Text = Convert.ToString(_arti.precio);
@@ -51,10 +51,14 @@ namespace WindowsForms
             try
             {
                 ArticuloNegocio negocio = new ArticuloNegocio();
-                negocio.eliminar(_arti.id);
+                DialogResult r = MessageBox.Show("esta seguro de esta operacion", "confirmacion", MessageBoxButtons.YesNo);
 
-                MessageBox.Show("Artículo eliminado con éxito");
-                this.Close();
+                if (r == DialogResult.Yes)
+                {
+                    negocio.eliminar(_arti.id);
+                    MessageBox.Show("el articulo se elimino correctamente");
+                    this.Close();
+                }
             }
             catch (Exception ex)
             {

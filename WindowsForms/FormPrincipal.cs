@@ -24,12 +24,7 @@ namespace WindowsForms
 
         private void Form2_Load(object sender, EventArgs e)
         {
-            ArticuloNegocio arti = new ArticuloNegocio();
-            lista = arti.listar();
-            dgvlista.DataSource = lista;   // carga el datagridview  la lista de articulos
-            dgvlista.Columns[0].Visible = false;
-            dgvlista.Columns[3].Visible = false;    // ocultamos la columna 4 que contiene la descripcion del producto
-            dgvlista.Columns[4].Visible = false;    // ocultamos la columna 4 que contiene la url de imagene
+            CargarGrilla();
         }
 
         private void btnIvolver_Click(object sender, EventArgs e)
@@ -46,7 +41,7 @@ namespace WindowsForms
             }
             catch
             {
-
+                pbImagen.Load("noimagen.png");  // si no hay una imagne de articulo  se muestra un imagen del error
             }
         }
 
@@ -76,9 +71,12 @@ namespace WindowsForms
         {
             try
             {
-                var negocio = new ArticuloNegocio();
-                var articulos = negocio.listar();
-                dgvlista.DataSource = articulos;
+                ArticuloNegocio arti = new ArticuloNegocio();
+                lista = arti.listar();
+                dgvlista.DataSource = lista;   // carga el datagridview  la lista de articulos
+                dgvlista.Columns[0].Visible = false;
+                dgvlista.Columns[3].Visible = false;    // ocultamos la columna 4 que contiene la descripcion del producto
+                dgvlista.Columns[4].Visible = false;    // ocultamos la columna 4 que contiene la url de imagene
                 LimpiarFiltro();
             }
             catch (Exception)
