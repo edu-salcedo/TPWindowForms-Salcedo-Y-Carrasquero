@@ -67,6 +67,7 @@
             this.tbnombre.Size = new System.Drawing.Size(119, 20);
             this.tbnombre.TabIndex = 6;
             this.tbnombre.TextChanged += new System.EventHandler(this.tbnombre_TextChanged);
+            this.tbnombre.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbnombre_KeyPress);
             // 
             // btnIngresar
             // 
@@ -119,7 +120,7 @@
             this.Controls.Add(this.label1);
             this.Name = "FormBienvenida";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Form1";
+            this.Text = "Bienvenido";
             this.Load += new System.EventHandler(this.Form1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();

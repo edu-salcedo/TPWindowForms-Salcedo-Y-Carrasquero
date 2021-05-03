@@ -24,7 +24,7 @@ namespace WindowsForms
 
         private void Form2_Load(object sender, EventArgs e)
         {
-            ArticuloNegosio arti = new ArticuloNegosio();
+            ArticuloNegocio arti = new ArticuloNegocio();
             lista = arti.listar();
             dgvlista.DataSource = lista;   // carga el datagridview  la lista de articulos
             dgvlista.Columns[0].Visible = false;
@@ -35,16 +35,14 @@ namespace WindowsForms
         private void btnIvolver_Click(object sender, EventArgs e)
         {
             this.Close();
-
         }
 
         private void dgvlista_SelectionChanged(object sender, EventArgs e)
         {
             try
             {
-            artiActual = (Articulo)dgvlista.CurrentRow.DataBoundItem; // trae  el articulo de la fila seleccionada
-            pbImagen.Load(artiActual.imagen);
-
+                artiActual = (Articulo)dgvlista.CurrentRow.DataBoundItem; // trae  el articulo de la fila seleccionada
+                pbImagen.Load(artiActual.imagen);
             }
             catch
             {
@@ -56,14 +54,14 @@ namespace WindowsForms
         {
             DetalleProducto detalle = new DetalleProducto(artiActual);
             detalle.ShowDialog();
+
+            CargarGrilla();
         }
 
         private void pbBuscar_Click(object sender, EventArgs e)
         {
-
             List<Articulo> listafilro = lista.FindAll(x => x.nombre.ToUpper().Contains(tbfiltro.Text.ToUpper()) || x.marca.nombre.ToUpper().Contains(tbfiltro.Text.ToUpper()));
             dgvlista.DataSource = listafilro;
-
         }
 
         private void btnAgregar_Click(object sender, EventArgs e)
@@ -71,11 +69,37 @@ namespace WindowsForms
             FormUpdate editar = new FormUpdate();
             editar.ShowDialog();
 
-            //     Articulo articulo;
-            //articulo = (Articulo)dgvlista.CurrentRow.DataBoundItem;
+            CargarGrilla();
+        }
 
-            //FormUpdate modificar = new FormUpdate(articulo);
-            //modificar.ShowDialog();
+        private void CargarGrilla()
+        {
+            try
+            {
+                var negocio = new ArticuloNegocio();
+                var articulos = negocio.listar();
+                dgvlista.DataSource = articulos;
+                LimpiarFiltro();
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Ocurrió un error listando los artículos");
+            }
+        }
+
+        private void tbfiltro_KeyUp(object sender, KeyEventArgs e)
+        {
+            List<Articulo> listafilro = lista.FindAll(x =>  x.nombre.ToUpper().Contains(tbfiltro.Text.ToUpper()) || 
+                                                            x.marca.nombre.ToUpper().Contains(tbfiltro.Text.ToUpper()) ||
+                                                            x.codigo.ToUpper().Contains(tbfiltro.Text.ToUpper()) ||
+                                                            x.descripcion.ToUpper().Contains(tbfiltro.Text.ToUpper()) || 
+                                                            x.categoria.nombre.ToUpper().Contains(tbfiltro.Text.ToUpper()));
+            dgvlista.DataSource = listafilro;
+        }
+
+        private void LimpiarFiltro()
+        {
+            tbfiltro.Text = string.Empty;
         }
     }
 }

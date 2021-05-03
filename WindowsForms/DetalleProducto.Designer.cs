@@ -51,7 +51,7 @@
             // 
             this.btnEliminar.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnEliminar.ForeColor = System.Drawing.Color.DarkOrange;
-            this.btnEliminar.Location = new System.Drawing.Point(448, 53);
+            this.btnEliminar.Location = new System.Drawing.Point(645, 53);
             this.btnEliminar.Name = "btnEliminar";
             this.btnEliminar.Size = new System.Drawing.Size(116, 41);
             this.btnEliminar.TabIndex = 8;
@@ -63,7 +63,7 @@
             // 
             this.btnEditar.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnEditar.ForeColor = System.Drawing.Color.DarkOrange;
-            this.btnEditar.Location = new System.Drawing.Point(612, 53);
+            this.btnEditar.Location = new System.Drawing.Point(511, 53);
             this.btnEditar.Name = "btnEditar";
             this.btnEditar.Size = new System.Drawing.Size(116, 41);
             this.btnEditar.TabIndex = 9;
@@ -75,11 +75,11 @@
             // 
             this.btnIVolver.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnIVolver.ForeColor = System.Drawing.Color.DarkOrange;
-            this.btnIVolver.Location = new System.Drawing.Point(529, 379);
+            this.btnIVolver.Location = new System.Drawing.Point(556, 379);
             this.btnIVolver.Name = "btnIVolver";
             this.btnIVolver.Size = new System.Drawing.Size(161, 50);
             this.btnIVolver.TabIndex = 10;
-            this.btnIVolver.Text = "VER TODOS LOS ARTICULOS";
+            this.btnIVolver.Text = "VOLVER";
             this.btnIVolver.UseVisualStyleBackColor = true;
             this.btnIVolver.Click += new System.EventHandler(this.btnIVolver_Click);
             // 
@@ -87,7 +87,7 @@
             // 
             this.label11.AutoSize = true;
             this.label11.Font = new System.Drawing.Font("Modern No. 20", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label11.Location = new System.Drawing.Point(138, 111);
+            this.label11.Location = new System.Drawing.Point(115, 111);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(67, 21);
             this.label11.TabIndex = 20;
@@ -97,7 +97,7 @@
             // 
             this.label12.AutoSize = true;
             this.label12.Font = new System.Drawing.Font("Modern No. 20", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label12.Location = new System.Drawing.Point(138, 158);
+            this.label12.Location = new System.Drawing.Point(115, 158);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(76, 21);
             this.label12.TabIndex = 21;
@@ -117,7 +117,7 @@
             // 
             this.label14.AutoSize = true;
             this.label14.Font = new System.Drawing.Font("Modern No. 20", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label14.Location = new System.Drawing.Point(138, 259);
+            this.label14.Location = new System.Drawing.Point(115, 249);
             this.label14.Name = "label14";
             this.label14.Size = new System.Drawing.Size(64, 21);
             this.label14.TabIndex = 23;
@@ -127,7 +127,7 @@
             // 
             this.label15.AutoSize = true;
             this.label15.Font = new System.Drawing.Font("Modern No. 20", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label15.Location = new System.Drawing.Point(136, 344);
+            this.label15.Location = new System.Drawing.Point(116, 344);
             this.label15.Name = "label15";
             this.label15.Size = new System.Drawing.Size(66, 21);
             this.label15.TabIndex = 24;
@@ -137,7 +137,7 @@
             // 
             this.label16.AutoSize = true;
             this.label16.Font = new System.Drawing.Font("Modern No. 20", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label16.Location = new System.Drawing.Point(123, 295);
+            this.label16.Location = new System.Drawing.Point(115, 295);
             this.label16.Name = "label16";
             this.label16.Size = new System.Drawing.Size(91, 21);
             this.label16.TabIndex = 25;
@@ -145,64 +145,65 @@
             // 
             // lbPrecio
             // 
-            this.lbPrecio.AutoSize = true;
+            this.lbPrecio.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.lbPrecio.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.lbPrecio.Font = new System.Drawing.Font("Modern No. 20", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbPrecio.Location = new System.Drawing.Point(255, 344);
+            this.lbPrecio.Location = new System.Drawing.Point(256, 343);
             this.lbPrecio.Name = "lbPrecio";
-            this.lbPrecio.Size = new System.Drawing.Size(57, 21);
+            this.lbPrecio.Size = new System.Drawing.Size(163, 24);
             this.lbPrecio.TabIndex = 27;
-            this.lbPrecio.Text = "precio";
             // 
             // lbMarca
             // 
-            this.lbMarca.AutoSize = true;
+            this.lbMarca.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.lbMarca.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.lbMarca.Font = new System.Drawing.Font("Modern No. 20", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbMarca.Location = new System.Drawing.Point(256, 259);
+            this.lbMarca.Location = new System.Drawing.Point(256, 249);
             this.lbMarca.Name = "lbMarca";
-            this.lbMarca.Size = new System.Drawing.Size(57, 21);
+            this.lbMarca.Size = new System.Drawing.Size(163, 24);
             this.lbMarca.TabIndex = 28;
-            this.lbMarca.Text = "marca";
             // 
             // lbDesc
             // 
-            this.lbDesc.AutoSize = true;
+            this.lbDesc.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.lbDesc.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.lbDesc.Font = new System.Drawing.Font("Modern No. 20", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbDesc.Location = new System.Drawing.Point(256, 205);
             this.lbDesc.Name = "lbDesc";
-            this.lbDesc.Size = new System.Drawing.Size(47, 21);
+            this.lbDesc.Size = new System.Drawing.Size(163, 24);
             this.lbDesc.TabIndex = 29;
-            this.lbDesc.Text = " desc";
+            this.lbDesc.Text = " ";
             this.lbDesc.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // lbCat
             // 
-            this.lbCat.AutoSize = true;
+            this.lbCat.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.lbCat.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.lbCat.Font = new System.Drawing.Font("Modern No. 20", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbCat.Location = new System.Drawing.Point(237, 295);
+            this.lbCat.Location = new System.Drawing.Point(256, 294);
             this.lbCat.Name = "lbCat";
-            this.lbCat.Size = new System.Drawing.Size(80, 21);
+            this.lbCat.Size = new System.Drawing.Size(163, 24);
             this.lbCat.TabIndex = 30;
-            this.lbCat.Text = "categoria";
             // 
             // lbNombre
             // 
-            this.lbNombre.AutoSize = true;
-            this.lbNombre.Font = new System.Drawing.Font("Microsoft JhengHei", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbNombre.Location = new System.Drawing.Point(244, 158);
+            this.lbNombre.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.lbNombre.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.lbNombre.Font = new System.Drawing.Font("Modern No. 20", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbNombre.Location = new System.Drawing.Point(256, 157);
             this.lbNombre.Name = "lbNombre";
-            this.lbNombre.Size = new System.Drawing.Size(87, 24);
+            this.lbNombre.Size = new System.Drawing.Size(163, 24);
             this.lbNombre.TabIndex = 31;
-            this.lbNombre.Text = " nombre";
             // 
             // lbCodigo
             // 
-            this.lbCodigo.AutoSize = true;
+            this.lbCodigo.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.lbCodigo.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.lbCodigo.Font = new System.Drawing.Font("Modern No. 20", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbCodigo.Location = new System.Drawing.Point(256, 111);
             this.lbCodigo.Name = "lbCodigo";
-            this.lbCodigo.Size = new System.Drawing.Size(61, 21);
+            this.lbCodigo.Size = new System.Drawing.Size(163, 24);
             this.lbCodigo.TabIndex = 33;
-            this.lbCodigo.Text = "Codigo";
             // 
             // pbImag
             // 
@@ -235,7 +236,7 @@
             this.Controls.Add(this.btnEditar);
             this.Controls.Add(this.btnEliminar);
             this.Name = "DetalleProducto";
-            this.Text = "DetalleProducto";
+            this.Text = "Detalle artículo";
             this.Load += new System.EventHandler(this.DetalleProducto_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pbImag)).EndInit();
             this.ResumeLayout(false);
@@ -258,7 +259,7 @@
         private System.Windows.Forms.Label lbDesc;
         private System.Windows.Forms.Label lbCat;
         private System.Windows.Forms.Label lbNombre;
-        private System.Windows.Forms.Label lbCodigo;
         private System.Windows.Forms.PictureBox pbImag;
+        private System.Windows.Forms.Label lbCodigo;
     }
 }

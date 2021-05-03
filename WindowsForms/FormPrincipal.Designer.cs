@@ -50,6 +50,7 @@
             this.dgvlista.Location = new System.Drawing.Point(32, 105);
             this.dgvlista.MultiSelect = false;
             this.dgvlista.Name = "dgvlista";
+            this.dgvlista.ReadOnly = true;
             this.dgvlista.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvlista.Size = new System.Drawing.Size(561, 254);
             this.dgvlista.TabIndex = 14;
@@ -119,6 +120,7 @@
             this.tbfiltro.Name = "tbfiltro";
             this.tbfiltro.Size = new System.Drawing.Size(279, 20);
             this.tbfiltro.TabIndex = 20;
+            this.tbfiltro.KeyUp += new System.Windows.Forms.KeyEventHandler(this.tbfiltro_KeyUp);
             // 
             // pbBuscar
             // 
@@ -146,7 +148,7 @@
             this.Controls.Add(this.dgvlista);
             this.Name = "FormPrincipal";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Form2";
+            this.Text = "Principal";
             this.Load += new System.EventHandler(this.Form2_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvlista)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbImagen)).EndInit();

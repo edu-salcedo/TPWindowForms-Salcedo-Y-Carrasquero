@@ -17,6 +17,7 @@ namespace WindowsForms
     {
 
         private Articulo articulo = null;
+
         public FormUpdate()
         {
             InitializeComponent();
@@ -27,7 +28,9 @@ namespace WindowsForms
         {
             InitializeComponent();
             articulo = arti;
+            this.Text = "Modificar artículo";
         }
+
         private void FormUpdate_Load(object sender, EventArgs e)
         {
             MarcaNegosio marca = new MarcaNegosio();
@@ -62,22 +65,36 @@ namespace WindowsForms
             {
                 if (articulo == null) articulo = new Articulo();
 
-                ArticuloNegosio articuloNegosio = new ArticuloNegosio();
-                articulo.codigo = tbCodigo.Text;                // se asigna el codigo que ingreso en texbox
-                articulo.nombre = tbNombre.Text;               //      "        nombre  "     "      "
-                articulo.descripcion = tbDescripcion.Text;    //      "        descripcion   "     "      "
+                ArticuloNegocio articuloNegosio = new ArticuloNegocio();
+                articulo.codigo = tbCodigo.Text;              
+                articulo.nombre = tbNombre.Text;              
+                articulo.descripcion = tbDescripcion.Text;    
                 articulo.imagen = tbImagen.Text;
                 articulo.marca = (Marca)cbMarca.SelectedItem;
                 articulo.categoria = (Categoria)cbCategoria.SelectedItem;
                 articulo.precio = decimal.Parse(tbPrecio.Text);
 
                 if (articulo.id > 0)
-                {                                           // si el articulo no tiene un id es un articulo nuevo 
-                    articuloNegosio.editar(articulo);                  //se llama funcion etitar
+                {                                           
+                    if (articuloNegosio.editar(articulo))
+                    {
+                        MessageBox.Show("Se editó el artículo correctamente");   
+                    }
+                    else
+                    {
+                        MessageBox.Show("No se pudo editar el artículo");
+                    }
                 }
                 else
                 {
-                    articuloNegosio.agregar(articulo);                 //  se llama a la funcion agregar y se manda parametro articulo con los valores ingresados
+                    if (articuloNegosio.agregar(articulo))
+                    {
+                        MessageBox.Show("Se agregó el artículo correctamente");
+                    }
+                    else
+                    {
+                        MessageBox.Show("No se pudo agregar el artículo");
+                    }
                 }
                 this.Close();
             }
@@ -93,16 +110,16 @@ namespace WindowsForms
         {
             string mensaje = "este campo no puede estar vacio";
 
-            if (tbCodigo.Text.Trim() == String.Empty ) // si esta vacio 
+            if (tbCodigo.Text.Trim() == string.Empty )
             {
                 errorProvider1.SetError(tbCodigo,mensaje);
                 return false;
             }
             else
             {
-                errorProvider1.SetError(tbCodigo,"");
+                errorProvider1.SetError(tbCodigo, string.Empty);
             }
-            if (tbNombre.Text.Trim() == String.Empty) // si esta vacio 
+            if (tbNombre.Text.Trim() == string.Empty)
             {
                
                 errorProvider1.SetError(tbNombre, mensaje);
@@ -110,7 +127,7 @@ namespace WindowsForms
             }
             else
             {
-                errorProvider1.SetError(tbNombre, "");
+                errorProvider1.SetError(tbNombre, string.Empty);
             }
             if (tbDescripcion.Text.Trim() == String.Empty) // si esta vacio 
             {
@@ -120,7 +137,7 @@ namespace WindowsForms
             }
             else
             {
-                errorProvider1.SetError(tbDescripcion, "");
+                errorProvider1.SetError(tbDescripcion, string.Empty);
             }
             if (cbMarca.SelectedIndex <= -1)
             {
@@ -130,7 +147,7 @@ namespace WindowsForms
             }
             else
             {
-                errorProvider1.SetError(cbMarca, "");
+                errorProvider1.SetError(cbMarca, string.Empty);
                 
             }
 
@@ -140,19 +157,38 @@ namespace WindowsForms
                 return false;
             }
             else
-            { errorProvider1.SetError(cbCategoria, ""); }
+            { 
+                errorProvider1.SetError(cbCategoria, string.Empty); 
+            }
 
-            if ((tbPrecio.Text.Trim() == String.Empty)|| !( tbPrecio.Text.All(char.IsDigit))) // si esta vacio 
+            if (tbPrecio.Text.Trim() == string.Empty)
             {
-                
                 errorProvider1.SetError(tbPrecio, mensaje);
                 return false;
             }
             else
             {
-                errorProvider1.SetError(tbPrecio, "");
+                errorProvider1.SetError(tbPrecio, string.Empty);
             }
+
+            decimal precio = 0;
+            bool esNumero = decimal.TryParse(tbPrecio.Text.Trim(), out precio);
+            if (!esNumero)
+            {
+                errorProvider1.SetError(tbPrecio, "El precio no posee un formato correcto");
+                return false;
+            }
+            else
+            {
+                errorProvider1.SetError(tbPrecio, string.Empty);
+            }
+
             return true;
+        }
+
+        private void label4_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

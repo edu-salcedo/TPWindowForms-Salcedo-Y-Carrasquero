@@ -57,5 +57,19 @@ namespace WindowsForms
                 btnIngresar.Enabled = false;
             }
         }
+
+        private void FormBienvenida_KeyUp(object sender, KeyEventArgs e)
+        {
+            
+        }
+
+        private void tbnombre_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == (char)13 && tbnombre.Text != string.Empty)
+            {
+                FormPrincipal ventana2 = new FormPrincipal(tbnombre.Text);
+                ventana2.ShowDialog();
+            }
+        }
     }
 }

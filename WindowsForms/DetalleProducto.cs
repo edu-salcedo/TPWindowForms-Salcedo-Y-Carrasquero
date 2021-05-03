@@ -1,11 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using Dominio;
 using Negosio;
@@ -23,17 +16,16 @@ namespace WindowsForms
 
         private void DetalleProducto_Load(object sender, EventArgs e)
         {
-            lbCodigo.Text = _arti.codigo;
-            lbNombre.Text = _arti.nombre;
-            lbDesc.Text = _arti.descripcion;
-            lbCat.Text = _arti.categoria.nombre;
-            lbMarca.Text = _arti.marca.nombre;
-            lbPrecio.Text = Convert.ToString(_arti.precio);
-
             try
             {
+                lbCodigo.Text = _arti.codigo;
+                lbNombre.Text = _arti.nombre;
+                lbDesc.Text = _arti.descripcion;
+                lbCat.Text = _arti.categoria.nombre;
+                lbMarca.Text = _arti.marca.nombre;
+                lbPrecio.Text = Convert.ToString(_arti.precio);
+            
                 pbImag.Load(_arti.imagen);
-
             }
             catch
             {
@@ -51,12 +43,24 @@ namespace WindowsForms
         {
             FormUpdate modificar = new FormUpdate(_arti);
             modificar.ShowDialog();
+            this.Close();
         }
 
         private void btnEliminar_Click(object sender, EventArgs e)
         {
-            ArticuloNegosio negosio = new ArticuloNegosio();
-            negosio.eliminar(_arti.id);
+            try
+            {
+                ArticuloNegocio negocio = new ArticuloNegocio();
+                negocio.eliminar(_arti.id);
+
+                MessageBox.Show("Artículo eliminado con éxito");
+                this.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("No se pudo eliminar el articulo");
+                Console.WriteLine("Excepcion: " + ex.Message);
+            }
         }
     }
 }
