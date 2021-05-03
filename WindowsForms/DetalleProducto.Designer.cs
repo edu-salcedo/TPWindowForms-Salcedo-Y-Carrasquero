@@ -173,7 +173,6 @@
             this.lbDesc.Size = new System.Drawing.Size(163, 24);
             this.lbDesc.TabIndex = 29;
             this.lbDesc.Text = " ";
-            this.lbDesc.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // lbCat
             // 
